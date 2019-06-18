@@ -1,0 +1,206 @@
+.nav_all {
+    background:#39a0be;
+    width: auto;
+    height: 70px;
+}
+.nav {
+    width: 1000px;
+    margin: 0 auto;
+}
+.nav_left {
+    width: 560px;
+    justify-content: space-between;
+    float: left;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+.nav_ul {
+    margin-left: 40px;
+    float: left;
+    height: 70px;
+}
+.nav_ul li {
+    float: left;
+    margin-right: 25px;
+}
+.nav_ul li a {
+    line-height: 70px;
+    color: #fff;
+    font-size: 16px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ol, ul {
+    list-style: none;
+}
+.nav_right {
+    float: left;
+    margin-left: 20px;
+    width: 420px;
+}
+.nav_right_input {
+    background: #fff;
+    height: 35px;
+    border-radius: 5px;
+    width: 305px;
+    margin-top: 17.5px;
+    float: left;
+    overflow: hidden;
+}
+.nav_r_input {
+    width: 230px;
+    border: 0;
+    height: 33px;
+    margin-left: 10px;
+    outline: 0;
+    margin-top: 0;
+}
+input, textarea, select {
+    border: 0;
+    font-family: 'microsoft yahei',sans-serif;
+}
+.nav_r_button {
+    height: 20px;
+    line-height: 19px;
+    color: #39a0be;
+    font-size: 14px;
+    background: #fff;
+    width: 58px;
+    border-left: 1px solid #39a0be;
+    margin-top: 7.5px;
+}
+.go_ask {
+    margin-left: 20px;
+    width: 68px;
+    height: 35px;
+    line-height: 35px;
+    background:#ff9800;
+    color: #fff;
+    float: left;
+    margin-top: 17.5px;
+    text-align: center;
+    border-radius: 5px;
+}
+.webway {
+    width: 1000px;
+    margin: 15px auto 0;
+    font-size: 15px;
+}
+.webway * {
+    color: #666;
+    font-size: 12px;
+}
+.webway i:before {
+    content: "\60A8\7684\4F4D\7F6E\FF1A";
+    display: inline-block;
+    color: #aaa;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+.container {
+    width: 1000px;
+    margin: 25px 300px;
+
+}
+.container .left-container {
+    border: 1px solid #ddd;
+    width: 700px;
+    padding: 22px 20px 0;
+}
+.left-title {
+    position: relative;
+}
+.left-title:before {
+    content: "";
+    height: 110%;
+    position: absolute;
+    left: -20px;
+    border-left: 5px solid #39a0be;
+}
+.left-title h2 {
+    display: inline-block;
+    color: #39a0be;
+    font-size: 16px;
+    padding-right: 8px;
+    background-color: #fff;
+}
+.left-title h2 .title-prefix {
+    display: none;
+}
+.left-title .left-title-line {
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px dashed #ddd;
+    height: 1px;
+    z-index: -1;
+    top: 50%;
+}
+.left-baseinfo {
+    margin: 20px 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.left-baseinfo .baseinfo-left {
+    width: 369px;
+}
+.left-baseinfo td {
+    color: #222;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+.left-baseinfo td i {
+    color: #222;
+}
+.left-jiuzhentishi {
+    margin: 15px 0;
+    font-size: 16px;
+}
+.left-jiuzhentishi li {
+    line-height: 40px;
+    color: #222;
+}
+.left-jiuzhentishi li i {
+    color: #222;
+}
+.left-tips {
+    margin: 20px 0;
+}
+.left-tips li {
+    line-height: 40px;
+    font-size: 16px;
+    color: #222;
+}
+.title {
+    margin: 10px auto 20px;
+    width: 880px;
+    position: relative;
+    border-bottom: 2px solid #39a0be;
+}
+.title h1{
+    line-height: 1.3em;
+    padding-top: 15px;
+    width: 100%;
+    color: #222;
+    font-size: 27px;
+}
+.left-tips p {
+    line-height: 40px;
+    font-size: 16px;
+    color: #222;
+}

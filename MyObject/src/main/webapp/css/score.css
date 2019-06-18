@@ -1,0 +1,27 @@
+.cleanfloat::after{display: block; clear: both; content:""; visibility: hidden; height: 0;}
+        *{margin:0; padding:0;}
+
+        /*字体路径按照你的路径去修改*/
+         @font-face {
+            font-family: 'AlluraRegular';
+            src: url('../common/webFontIcon/websymbols/fonts/websymbols-regular-webfont.eot'),
+                 url('../common/webFontIcon/websymbols/fonts/websymbols-regular-webfont?#iefix') format('embedded-opentype'), 
+                 url('../common/webFontIcon/websymbols/fonts/websymbols-regular-webfont.woff') format('woff'),
+                 url('../common/webFontIcon/websymbols/fonts/websymbols-regular-webfont.ttf') format('truetype'),
+                 url('../common/webFontIcon/websymbols/fonts/websymbols-regular-webfont.svg#AlluraRegular') format('svg');
+        }
+        .starFive span {display: block;float: left;font-size: 25px; font-family: 'AlluraRegular';
+            text-align: center;color: #888;width: 27px;height: 33px;line-height: 33px;
+            margin-right: 5px;position: relative;overflow: hidden;white-space: pre;
+         }
+        .starFive span:before {position: absolute;
+            left: 0;top: 0;display: block;width: 50%;
+            content: attr(data-content);overflow: hidden;color: #F63;
+        }
+        .sF1 span:before{width: 70%;}
+        .sF2 span:before{width: 50%;}
+        .sF3 span:before{width: 40%;}
+        .starFive .org_star {color: #F63;}
+        .starFive b {font-weight: normal; line-height: 40px;
+            font-size: 25px;color: #888;margin-left: 10px;
+        }
