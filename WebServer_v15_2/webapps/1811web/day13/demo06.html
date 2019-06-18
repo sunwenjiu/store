@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+setTimeout(function(){
+	$("input").trigger("click")
+	
+	
+},3000)
+$(function(){
+	$("div").hover(function(){
+		$("div").css("color","red")
+	},function(){
+		$("div").css("color","green")
+
+	})
+})
+</script>
+</head>
+<body>
+<input type="button" value="点我试试" onclick="alert('试试就试试')">
+<div>
+今天web前端最后一天
+</div>
+</body>
+</html>

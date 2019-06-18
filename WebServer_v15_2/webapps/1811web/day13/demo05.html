@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	border: 2px solid pink;
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 70%;
+}
+
+h1 {
+	text-align: center;
+}
+
+td, th {
+	border: 3px solid pink;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	height: 50px;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$("input")
+				.click(
+						function() {
+							var name = $(this).parent().siblings().eq(0).text();
+							var price = $(this).parent().siblings().eq(1)
+									.text();
+
+							var nametd = $("<td></td>");
+							var pricetd = $("<td></td>");
+							nametd.text(name);
+							pricetd.text(price);
+
+							var counttd = $("<td><input type='button' value='-' onclick='counfn(-1)'><span>1</span><input type='button' value='+' onclick='counfn(1)'></td>");
+							//alert(counttd.text())
+				/* 			counttd.children().click(function(){
+								if(counttd.children().attr("value")=="-"){
+									var s =parseInt(counttd.text());
+									s--;
+							alert(counttd.text())
+								}else{
+									var s =parseInt(counttd.text());
+									s++;
+									alert(s)
+									
+								}
+								
+							}) */
+					//	counttd.children().attr("value")
+							
+							var moneytd = $("<td></td>");
+							moneytd.text(price)
+							var deltd = $("<td><input type='button' value='删除'></td>");
+							deltd.children().click(function(){
+								
+								$(this).parent().parent().remove();
+								calfn();
+							})
+							var tr = $("<tr></tr>");
+							tr.append(nametd)
+							tr.append(pricetd)
+							tr.append(counttd)
+							tr.append(moneytd)
+							tr.append(deltd)
+
+							$("#total_tr").before(tr)
+							calfn();
+
+						})
+
+	})
+	
+	function counfn(x){
+		var  obj = event.target||event.srcElement;
+		var count=parseInt($(obj).siblings("span").text()); 
+ count+=x;
+	if(count<1){
+		
+		count=1;
+	}
+//alert(count)
+	$(obj).siblings("span").text(count);
+	var money =$(obj).parent().prev().text()*count;
+	
+	$(obj).parent().next().text(money);
+	
+	calfn();
+	} 
+	
+	function calfn(){
+		var total=0;
+		$("table:last tr").each(function(){
+			var money =parseInt($(this).children().eq(3).text())
+			if(!isNaN(money)){
+				total+=money;
+			}
+			
+		})
+		$("#total_tr td").text("总价:"+total)
+	}
+	
+</script>
+</head>
+<body>
+	<h1>特价商品</h1>
+	<table>
+		<tr>
+			<th>商品名称</th>
+			<th>商品单价</th>
+			<th>商品库存</th>
+			<th>好评率</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td>水杯</td>
+			<td>25</td>
+			<td>3</td>
+			<td>89%</td>
+			<td><input type="button" value="加入购物车"></td>
+		</tr>
+		<tr>
+			<td>鼠标</td>
+			<td>50</td>
+			<td>100</td>
+			<td>95%</td>
+			<td><input type="button" value="加入购物车"></td>
+		</tr>
+
+		<tr>
+			<td>键盘</td>
+			<td>120</td>
+			<td>50</td>
+			<td>91%</td>
+			<td><input type="button" value="加入购物车"></td>
+		</tr>
+		<tr>
+			<td>苹果电脑</td>
+			<td>10000</td>
+			<td>30</td>
+			<td>98%</td>
+			<td><input type="button" value="加入购物车"></td>
+		</tr>
+
+	</table>
+	<hr>
+	<h1>购物车</h1>
+	<table>
+		<tr>
+			<th>商品名称</th>
+			<th>商品单价</th>
+			<th>数量</th>
+			<th>金额</th>
+			<th>操作</th>
+		</tr>
+		<tr id="total_tr">
+			<td colspan=5;>总价:0元</td>
+		</tr>
+
+	</table>
+
+
+</body>
+</html>

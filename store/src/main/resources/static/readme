@@ -1,0 +1,196 @@
+create database tedu_store character set utf8;
+
+use tedu_store;
+
+create table t_user (
+uid int primary key auto_increment comment '用户的ID',
+username varchar(20) not null unique comment '用户名',
+password char(32) not null comment '密码',
+salt char(36) comment '盐值',
+avatar varchar(50)  comment '头像',
+phone varchar(20) comment '电话',
+email varchar(50) comment '邮箱',
+gender int comment '性别,0女,1男',
+is_delete int comment '是否删除,0未删除,1已删除',
+created_user varchar(20) comment '创建者',
+created_time datetime comment '创建时间',
+modified_user varchar(20) comment '最后修改者',
+modified_time datetime comment '最后修改时间'
+)default charset=utf8;
+
+
+create table t_address(
+aid int primary key auto_increment comment '收货地址',
+uid int comment '归属用户的id',
+name varchar(20) comment '收货人',
+province char(6) comment '省',
+city char(6) comment '市',
+area char(6) comment '区',
+district varchar(50) comment '省市区的汉子名称',
+zip char(6) comment '邮编',
+address varchar(50) comment '详细地址',
+tel varchar(20) comment '固话',
+phone varchar(20) comment '手机',
+tag varchar(20) comment '地址类型',
+is_default int comment '是否默认:0-非默认,1-默认',
+created_user varchar(20) comment '创建者',
+created_time datetime comment '创建时间',
+modified_user varchar(20) comment '最后修改者',
+modified_time datetime comment '最后修改时间'
+)default charset=utf8;
+
+
+insert into t_address (
+uid ,name ,
+province ,city ,
+area ,district ,
+zip ,address ,
+tel ,phone,
+tag, is_default ,
+created_user ,created_time ,
+ modified_user , modified_time 
+) values (
+#{uid} ,#{name },
+#{province} ,#{city} ,
+#{area} ,#{district} ,
+#{zip} ,#{address} ,
+#{tel} ,#{phone},
+#{tag},#{ isDefault} ,
+#{createdUser},#{createdTime},
+#{modifiedUser},#{modifiedTime}
+)
+
+
+
+select count(aid) from t_address where uid=?
+
+
+select
+	 tag,name,district,address,phone,is_default,aid 
+from 
+	t_address 
+where 
+	uid=#{uid}
+order by 
+	is_default desc,modified_time desc 
+
+
+默认相关开始
+update
+	 t_address 
+set 
+	is_default=1,modified_user=? ,modified_time=?
+where 
+	aid=?
+
+
+update
+	 t_address 
+set 
+	is_default=0
+where
+	uid=?
+
+select name from t_address where aid=?
+
+删除
+delete from t_address where aid=?
+
+select aid form t_address where uid=? order by modified_time desc limit 0,1
+
+主页热销
+select id,title,price,image   from t_goods where status=1 order by priority desc limit 0,4
+
+商品详情
+select title,sell_point,image,price  from t_goods where id=?
+
+购物车
+create table t_cart(
+cid int primary key auto_increment comment '购物车数据的id', 
+uid int comment '用户的id', 
+gid bigint comment '商品id', 
+num int comment '商品数量', 
+created_user varchar(20) comment '创建者',
+created_time datetime comment '创建时间',
+modified_user varchar(20) comment '最后修改者',
+modified_time datetime comment '最后修改时间'
+)default charset=utf8
+
+
+insert into t_cart () values ()
+
+update t_cart set num=?,modified_user=?,modified_time=? where cid=?
+
+select cid,num from t_cart where uid=? and gid=?
+
+
+购物车显示列表持久层
+
+select xx from t_cart  where  uid=?
+
+select
+ title,image,price,t_cart.num 
+from
+ t_cart 
+inner join 
+t_goods  
+on
+ t_cart.gid=t_goods.id
+ where 
+ uid=1
+order by 
+ t_cart.created_time desc
+
+购物车增加商品数量
+update xx set num=?,modified_user=?,modified_time=? where cid=?
+
+数据是否在
+select uid,num from t_cart where cid=?
+数据归属是否正确
+
+
+确认订单
+select
+ title,image,price,t_cart.num 
+from
+ t_cart 
+inner join 
+t_goods  
+on
+ t_cart.gid=t_goods.id
+ where 
+ cid in (?,?,?)
+order by 
+ t_cart.created_time desc
+
+创建订单数据表
+create table t_order(
+ oid int primary key auto_increment comment '订单id',
+uid int not null comment '归属用户',
+recv_name varchar(20) comment '收货人姓名',
+recv_phone varchar(20)  comment '收货人电话',
+recv_address varchar(100) comment '收货人详情地址',
+total_price bigint comment '总价',
+status int comment '状态:0-未支付,1-已支付,2-已取消',
+order_time datetime comment '下单时间',
+pay_time datetime  comment '支付时间',
+created_user varchar(20) comment '创建者',
+created_time datetime comment '创建时间',
+modified_user varchar(20) comment '最后修改者',
+modified_time datetime comment '最后修改时间'
+)default charset=utf8;
+
+
+create table t_order_item (
+ id int primary key auto_increment comment '自动递增的数据id',
+oid int comment '归属的订单的id',
+gid bigint comment '商品id',
+goods_title varchar(100) comment '商品标题',
+goods_image varchar(500)  comment '商品图片',
+goods_price bigint comment '商品价格',
+goods_num int comment '商品数量',
+created_user varchar(20) comment '创建者',
+created_time datetime comment '创建时间',
+modified_user varchar(20) comment '最后修改者',
+modified_time datetime comment '最后修改时间'
+)default charset=utf8;

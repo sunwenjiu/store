@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+*{
+border: 1px solid red;
+}
+</style>
+<script type="text/javascript">
+function myfn(){
+	var obj =event.target||event.srcElement;
+alert(obj.nodeName+"被敌机了")
+	alert(obj.value)
+} 
+
+</script>
+</head>
+<body>
+<div onclick="myfn()">
+<p >
+<input type="button" value="按钮1" >
+<input type="button" value="按钮2"  >
+
+
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*声明对象  */
+function Person(name,age){
+	this.name=name;
+	thisage=age;
+	this.run=function(){
+		alert(name+","+age);
+	}
+	
+}
+/* var p = new Person("刘备",18);
+p.run(); */
+
+function Student(){};
+var s = new Student();
+s.name="张三";
+s.run =function(){
+	alert(this.name+"再跑");
+}
+//s.run();
+
+var p1 ={
+		"name":"曹操",
+		"age":18,
+		"run":function(){
+			alert(this.name+","+this.age);
+		}
+		
+}
+p1.run();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+
+<script type="text/javascript">
+$(function(){
+
+	$("input").click(function(){
+		
+		
+			if(this.id=="all"){
+			
+			$("input:not(#all)").attr("checked",this.checked)	;
+			}
+			var total=0;
+			$("input:not(#all)").each(function(){
+				if(this.checked){
+					total+=parseInt(this.value)
+				}
+			})
+	 $("p").text("总价:"+total+"万")
+		
+
+	})
+
+	
+})
+
+
+</script>
+</head>
+<body>
+<h1>购物车</h1>
+<input class="item" type="checkbox"  name="shoop" id="car" value="50"><label for="car">奔驰50万</label><br>
+<input    class="item" type="checkbox" name="shoop" id="house" value="5000"><label for="house">豪宅5000</label><br>
+<input    class="item" type="checkbox" name="shoop" id="wife" value="5"><label for="wife">云南媳妇5万</label><br>
+<input type="checkbox" name="shoop" id="all" "><label for="all">全选</label><br>
+<p id="total_p">总价:0万</p>
+
+</body>
+</html>

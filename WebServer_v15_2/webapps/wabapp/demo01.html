@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<style type="text/css">
+.msg_erro {
+	color: red;
+}
+
+.msg_succ {
+	color: green;
+}
+</style>
+</head>
+<body>
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>编号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>性别</th>
+					<th>专业</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0001</td>
+					<td>张三</td>
+					<td>18</td>
+					<td>男</td>
+					<td>软件工程</td>
+					<td class="col-md-2">
+						<button type="button" class="btn btn-danger c0l-md-5">删除</button>
+						<button type="button"
+							class="btn btn-warning c0l-md-5 col-md-offset-2 update"
+							data-toggle="modal" data-target="#myModal">修改</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>0002</td>
+					<td>冬梅</td>
+					<td>18</td>
+					<td>女</td>
+					<td>网络工程</td>
+					<td class="col-md-2">
+						<button type="button" class="btn btn-danger c0l-md-5">删除</button>
+						<button type="button"
+							class="btn btn-warning c0l-md-5 col-md-offset-2 update"
+							data-toggle="modal" data-target="#myModal">修改</button>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+</body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">信息修改</h4>
+			</div>
+			<div class="modal-body">
+				<!--  -->
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">编号</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" id="id"
+								readonly="readonly">
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">名字</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" id="name"
+								onblur="checkName()">
+						</div>
+						<div class="col-sm-5">
+							<span id="msg_name"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">年龄</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" id="age">
+						</div>
+						<div class="col-sm-5">
+							<span id="msg_age"></span>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-primary">保存</button>
+					</div>
+
+				</form>
+				<!--  -->
+			</div>
+
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script type="text/javascript">
+	$(function() {
+		$(".update").click(function() {
+			var id = $(this).parent().siblings("td:eq(0)").text();
+			var name = $(this).parent().siblings("td:eq(1)").text();
+			var age = $(this).parent().siblings("td:eq(2)").text();
+			$("#id").val(id);
+			$("#name").val(name);
+			$("#age").val(age);
+
+		});
+
+	});
+
+	function checkName() {
+		var name = $("#name").val();
+		if (name.length<2 ||name.length>5) {
+			$("#msg_name").text("名字不合法")
+			$("#msg_name").attr("class", "msg_erro")
+		} else {
+			$("#msg_name").text("名字合法")
+			$("#msg_name").attr("class", "msg_succ")
+
+		}
+	}
+</script>
+</html>

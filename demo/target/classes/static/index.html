@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>欢迎使用springboot</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#btn_reg").click(function() {
+			$("#username-hint").html("");
+			$.ajax({
+					"url":"user/reg",
+					"data":$("#form-reg").serialize(),
+					"type":"post",
+					"dataType":"json",
+					"success":function(json){
+							if(json.state==1){
+								//登录成功
+								alert("注册成功");
+							}else if (json.state==2) {
+								//用户名错
+								//alert(json.message);
+								$("#username-hint").html(json.message);
+							}
+					}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+
+<form id="form-reg" action="user/reg" method="post">
+<h1>用户注册</h1>
+用户名:<br><input type="text" name="username">
+<span id="username-hint"></span>
+<br><br>
+密码:<br><input type="password" name="password"><br><br>
+年龄:<br><input type="text" name="age"><br><br>
+手机号码:<br><input type="text" name="phone"><br><br>
+电子邮箱:<br><input type="text" name="email"><br><br>
+<input type="button" id="btn_reg" value="注册">
+</form>
+</body>
+</html>

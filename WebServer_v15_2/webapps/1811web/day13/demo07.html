@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$("input:eq(0)").click(function(){
+		$("img").hide(3000,function(){
+		//	$("img").show(2000)
+		});
+	})
+	$("input:eq(1)").click(function(){
+
+			$("img").show(2000)
+		
+	})
+	
+		$("input:eq(2)").click(function(){
+
+			$("img").slideUp(2000)
+		
+	})
+		$("input:eq(3)").click(function(){
+
+			$("img").slideDown(2000)
+		
+	})
+	
+		$("input:eq(4)").click(function(){
+
+			$("img").fadeOut(2000)
+		
+	})	
+	$("input:eq(5)").click(function(){
+
+		$("img").fadeIn(2000)
+	
+})
+		$("input:eq(6)").click(function(){
+
+			$("img").animate({"left":"200px"},1000).animate({"top":"200px"},1000)
+			.animate({"left":"0px"},1000).animate({"top":"0px"},1000)
+			.animate({"width":"200px"},1000)
+			.animate({"width":"100px"},1000)
+		
+	})
+	
+	
+	
+	
+	
+	
+	
+	
+})
+
+</script>
+<style type="text/css">
+img{
+width: 100px;
+position: relative;
+
+}
+</style>
+</head>
+<body>
+<input type="button" value="隐藏">
+<input type="button" value="显示">
+<input type="button" value="上滑">
+<input type="button" value="下滑">
+<input type="button" value="淡出">
+<input type="button" value="淡入">
+<input type="button" value="自定义">
+<hr>
+<img alt="" src="../imgs/a.jpg">
+</body>
+</html>

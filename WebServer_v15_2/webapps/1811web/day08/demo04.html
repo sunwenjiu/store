@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function addfn(){
+	var i1=document.getElementById("i1");
+	var i2=document.getElementById("i2");
+	var ul=document.getElementById("myul");
+	var str="<li>[c]</li>";
+	var arr=i1.value.split(i2.value);
+	for(var i=0;i<arr.length;i++){
+		
+		ul.innerHTML+=str.replace("[c]",arr[i]);  ;
+	//	ul.innerHTML+="<li>"+arr[i]+"</li>"  ;
+	}
+	
+	
+}
+
+
+</script>
+</head>
+<body>
+<input type="text" id="i1" placeholder="请输入文本">
+<input type="text" id="i2" placeholder="请输入分隔符">
+<input type="button" value="添加" onclick="addfn()">
+<ul id="myul">
+
+</ul>
+
+
+</body>
+</html>

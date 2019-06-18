@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$("li>ul").hide();
+	
+	$("body>ul>li").click(function(){
+		$(this).children().toggle();
+		$(this).siblings().children().hide();
+		
+	})
+	
+})
+
+</script>
+</head>
+<body>
+<ul>
+		<li >前女友
+			<ul >
+				<li>杨贵妃</li>
+				<li>貂蝉</li>
+				<li>西施</li>
+			</ul>
+		</li>
+		<li >工作朋友
+			<ul >
+				<li>马云</li>
+				<li>马化腾</li>
+				<li>刘强东</li>
+			</ul>
+		
+		</li>
+		<li >亲戚
+			<ul >
+				<li>习大大</li>
+				<li>老干妈</li>
+				<li>奥巴马</li>
+			</ul>
+		</li>
+	
+</ul>
+</body>
+</html>

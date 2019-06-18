@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <link rel="stylesheet" href="demo09.css"> -->
+<style type="text/css">
+body {
+	margin: 0;
+	font: 12px "simhei", Arial, Helvetica, sans-serif;
+	color: #666;
+}
+
+header {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	overflow: hidden;
+}
+
+header>img, header>h1 {
+	float: left;
+}
+
+header>img {
+	margin-left: 40px;
+}
+
+header>h1 {
+	font-size: 24px;
+	font-weight: normal;
+	margin: 10px 0 0 10px;
+	color: #4f4d4e;
+}
+
+#form_div {
+	background-image: url(../images/regist.png);
+	width: 100%;
+	height: 560px;
+}
+
+#form_div>div {
+	width: 253px;
+	background-color: rgba(0, 0, 0, 0.3);
+	float: right;
+	margin: 122px 122px 0 0;
+	padding: 8px;
+}
+
+#form_div h2 {
+	color: white;
+	font-weight: normal;
+	border-bottom: 1px solid white;
+	padding-bottom: 7px;
+}
+
+#form_div h2>a, #auto_div a {
+	color: white;
+	font-size: 12px;
+	text-decoration: none;
+	float: right;
+	margin-top: 6px;
+}
+
+.filed>input {
+	width: 213px;
+	border: 0;
+	padding: 10px 20px;
+}
+
+.filed {
+	position: relative;
+}
+
+.filed>img {
+	position: absolute;
+	top: 4px;
+	right: 10px;
+}
+
+.filed>p {
+	color: red;
+	font-size: 12px;
+	margin: 5px;
+}
+
+#auto_div label {
+	color: white;
+}
+
+#auto_div input {
+	position: relative;
+	top: 2px;
+}
+
+#form_div>div>input {
+	border: 0px;
+	background-color: #0aa1ed;
+	color: white;
+	border-radius: 3px;
+	width: 100%;
+	height: 37px;
+	margin-top: 10px;
+}
+
+#service_div {
+	width: 1000px;
+	margin: 40px auto;
+	overflow: hidden;
+}
+
+#service_div div {
+	float: left;
+	width: 250px;
+	text-align: center;
+}
+footer{
+width: 1000px;
+margin: 0 auto;
+}
+footer>p{
+text-align: center;
+
+}
+footer>div{
+overflow: hidden;
+}
+footer>div>div{
+width: 333px;
+float: left;
+}
+footer ul{
+list-style-type: none;
+padding: 0;
+
+text-align: center;
+}
+#center_div>ul>li{
+float: left;
+width: 111px;
+}
+#center_div>ul>li>a{
+text-decoration: none;
+font-size: 14px;
+color: #333;
+
+}
+#center_div>ul>li>ul>li>a{
+text-decoration: none;
+font-size: 12px;
+color: #808080;
+}
+#center_div>ul>li>ul>li{
+margin: 10px 0;
+}
+#right_div>div{
+width: 125px;
+float: left;
+}
+#right_div>img{
+float: left;
+position: relative;
+top: 10px;
+left: 20px;
+}
+#right_div p{
+font-size: 14px;
+margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+	<header>
+		<img src="../images/header/logo.png">
+		<h1>欢迎登录</h1>
+	</header>
+
+	<article>
+		<div id="form_div">
+			<div>
+				<h2>
+					登录学子商城<a href="#">新用户注册</a>
+				</h2>
+				<div class="filed">
+					<input type="text" placeholder="请输入你的用户名"> <img
+						src="../images/login/yhm.png">
+					<p>用户名不能为空!</p>
+				</div>
+				<div class="filed">
+					<input type="password" placeholder="请输入你的密码"> <img
+						src="../images/login/mm.png">
+					<p>密码不能为空!</p>
+				</div>
+				<div id="auto_div">
+					<input type="checkbox" id="auto"> <label for="auto">自动登录</label>
+					<a href="#">忘记密码</a>
+				</div>
+				<input type="button" value="登录">
+			</div>
+
+		</div>
+
+		<div id="service_div">
+			<div>
+				<img alt="" src="../images/footer/icon2.png">
+				<p>品质保证</p>
+			</div>
+			<div>
+				<img alt="" src="../images/footer/icon2.png">
+				<p>品质保证</p>
+			</div>
+			<div>
+				<img alt="" src="../images/footer/icon2.png">
+				<p>品质保证</p>
+			</div>
+			<div>
+				<img alt="" src="../images/footer/icon2.png">
+				<p>品质保证</p>
+			</div>
+		</div>
+	</article>
+	<footer>
+		<div>
+			<div id="left_div"> 
+			<img alt="" src="../images/footer/logo.png">
+			<img alt="" src="../images/footer/footerFont.png">
+			</div>
+			<div id="center_div">
+				<ul>
+					<li><a href="#">买家霸主</a>
+						<ul>
+							<li><a href="#">新手指南</a></li>
+							<li><a href="#">新手指南</a></li>
+							<li><a href="#">新手指南</a></li>
+						</ul>
+					
+					</li>
+				</ul>
+				<ul>
+					<li><a href="#">买家霸主</a>
+						<ul>
+							<li><a href="#">新手指南</a></li>
+							<li><a href="#">新手指南</a></li>
+							<li><a href="#">新手指南</a></li>
+						</ul>
+					
+					</li>
+				</ul>
+				<ul>
+					<li><a href="#">买家霸主</a>
+						<ul>
+							<li><a href="#">新手指南</a></li>
+							<li><a href="#">新手指南</a></li>
+							<li><a href="#">新手指南</a></li>
+						</ul>
+					
+					</li>
+				</ul>
+			
+			</div>
+			<div id="right_div">
+				<div>
+					<p>学子商城客户端</p>
+					<img alt="" src="../images/footer/ios.png">
+					<img alt="" src="../images/footer/android.png">
+				</div>
+				<img alt="" src="../images/footer/erweima.png">
+			</div>
+		</div>
+		<p>©2017 达内集团有限公司 版权所有 京ICP证xxxxxxxxxxx</p>
+	</footer>
+
+</body>
+</html>

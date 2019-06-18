@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+onload=function(){
+	var uls=document.getElementsByClassName("c1");
+	for(var i=0;i<uls.length;i++){
+		uls[i].style.display="none";
+	}
+	
+}
+function myfn(li){
+	var ul=li.getElementsByTagName("ul")[0];
+	
+	ul.style.display=ul.style.display=="none"?"block":"none";
+	
+	var uls=document.getElementsByClassName("c1");
+	for(var i=0;i<uls.length;i++){
+		if(ul!=uls[i]){
+			
+		uls[i].style.display="none";
+		}
+	}
+	
+}
+</script>
+</head>
+<body>
+<ul>
+		<li onclick="myfn(this)">前女友
+			<ul class="c1">
+				<li>杨贵妃</li>
+				<li>貂蝉</li>
+				<li>西施</li>
+			</ul>
+		</li>
+		<li onclick="myfn(this)">工作朋友
+			<ul class="c1">
+				<li>马云</li>
+				<li>马化腾</li>
+				<li>刘强东</li>
+			</ul>
+		
+		</li>
+		<li onclick="myfn(this)">亲戚
+			<ul class="c1">
+				<li>习大大</li>
+				<li>老干妈</li>
+				<li>奥巴马</li>
+			</ul>
+		</li>
+	
+</ul>
+</body>
+</html>

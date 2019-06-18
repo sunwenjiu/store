@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function myjia(){
+	var i1 =document.getElementById("i1");
+	var i2 =document.getElementById("i2");
+	var d = document.getElementById("d1");
+	if(isNaN(i1.value) || isNaN(i2.value)){
+		d.innerText="输入错误";
+	}else{
+	//	d.innerText=parseFloat(i1.value)+parseFloat(i2.value);
+		d.innerText=i1.value*1+i2.value*1;
+	}
+}
+function myji(){
+	var i1 =document.getElementById("i1");
+	var i2 =document.getElementById("i2");
+	var d = document.getElementById("d1");
+	if(isNaN(i1.value) || isNaN(i2.value)){
+		d.innerText="输入错误";
+	}else{
+		d.innerText=i1.value-i2.value;
+	}
+}
+
+function myc(){
+	var i1 =document.getElementById("i1");
+	var i2 =document.getElementById("i2");
+	var d = document.getElementById("d1");
+	if(isNaN(i1.value) || isNaN(i2.value)){
+		d.innerText="输入错误";
+	}else{
+		d.innerText=i1.value*i2.value;
+	}
+}
+function mychu(){
+	var i1 =document.getElementById("i1");
+	var i2 =document.getElementById("i2");
+	var d = document.getElementById("d1");
+	if(isNaN(i1.value) || isNaN(i2.value)){
+		d.innerText="输入错误";
+	}else{
+		d.innerText=i1.value/i2.value;
+	}
+}
+
+function myfn(x){
+	var i1 =document.getElementById("i1");
+	var i2 =document.getElementById("i2");
+	var d = document.getElementById("d1");
+	var result;
+	if(isNaN(i1.value) || isNaN(i2.value)){
+		d.innerText="输入错误";
+	}else{
+		switch(x){
+		case 1:
+			result=parseFloat(i1.value)+parseFloat(i2.value);
+			break;
+		case 2:
+			result=parseFloat(i1.value)-parseFloat(i2.value);
+			break;
+		case 3:
+			result=parseFloat(i1.value)*parseFloat(i2.value);
+			break;
+			
+		case 4:
+			result=parseFloat(i1.value)/parseFloat(i2.value);
+			break;
+		
+		}
+	d.innerText=result;
+	
+	}
+}
+
+</script>
+</head>
+<body>
+<input type="text" id ="i1">
+<input type="text" id ="i2">
+<input type="button" value="+" onclick="myfn(1)">
+<input type="button" value="-" onclick="myfn(2)">
+<input type="button" value="*" onclick="myfn(3)">
+<input type="button" value="/" onclick="myfn(4)">
+<div id="d1"></div>
+
+</body>
+</html>

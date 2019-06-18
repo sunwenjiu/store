@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.mybatis.UserMapper">
+
+	<!-- 	Integer insert(User user);  -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		insert into t_user (
+		username,password,
+		age,phone,
+		email,is_delete
+		) values (
+		#{username},#{password},
+		#{age},#{phone},
+		#{email},#{isDelete}
+		)
+	</insert>
+	
+	
+	<!-- List<User> findAll() -->
+	<select id="findAll" resultType="cn.tedu.mybatis.User">
+			SELECT 
+				id,username,
+				password,age,
+				phone,email,
+				is_delete AS isDelete
+			FROM 
+				t_user
+	</select>
+	
+	<!-- User findByUsername(String username); -->
+	<select id="findByUsername" resultType="cn.tedu.mybatis.User">
+			SELECT 
+				id,username,
+				password,age,
+				phone,email,
+				is_delete AS isDelete
+			FROM 
+				t_user
+			WHERE
+				username=#{username}
+	</select>
+	
+	<!-- Integer updateIsdelete(Integer isDelete) -->
+	<update id="updateIsdelete">
+		UPDATE
+			t_user
+		SET
+			is_delete=#{isDelete}
+	</update>
+	
+	<!-- Integer updatePassword(@Param("id")Integer id,@Param("password") String password);  -->
+	<update id="updatePassword">
+		UPDATE
+			t_user
+		SET
+			password=#{password}
+		WHERE
+			id=#{id}
+	</update>
+	
+	<!-- Integer countById();  -->
+	<select id="countById" resultType="java.lang.Integer">
+		SELECT COUNT(id) FROM t_user
+	</select>
+	
+	<!-- Integer deleteByIds(Integer[] ids);  -->
+	<delete id="deleteByIds">
+		DELETE FROM
+			t_user
+		WHERE
+			id IN(
+					<foreach collection="array" item="id" separator=",">
+						#{id}
+						
+					</foreach>
+				)
+	
+	</delete>
+	
+	<!-- List<User> select(
+		@Param("where") String where); -->
+	<select id="select"
+		resultType="cn.tedu.mybatis.User">
+		SELECT 
+			id, username, 
+			password, age, 
+			phone, email,
+			is_delete AS isDelete
+		FROM 
+			t_user
+		<if test="where != null">
+			WHERE ${where}
+		</if>
+		<if test="orderBy != null">
+			ORDER BY ${orderBy}
+		</if>
+		<if test="limit != null">
+			LIMIT ${limit}
+		</if>
+	</select>
+	
+	
+	<!-- List<UserVO> findAll2();  -->
+	<select id="findAll2" resultType="cn.tedu.mybatis.UserVO">
+	
+	
+	</select>
+
+</mapper>

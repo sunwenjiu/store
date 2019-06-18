@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.ok{
+color: green;
+}
+.err{
+color: red;
+}
+
+</style>
+<script type="text/javascript">
+function myfn(){
+	var i1 = document.getElementById("i1");
+	var i2 = document.getElementById("i2");
+	var s1 = document.getElementById("s1");
+	var s2 = document.getElementById("s2");
+	var reg = /^\w{6,10}$/;
+	if(reg.test(i1.value)){
+		s1.className="ok";
+		}else{
+		s1.className="err";
+		}
+	if(reg.test(i2.value)){
+		s2.className="ok";
+		}else{
+		s2.className="err";
+		}
+	
+}
+
+</script>
+
+</head>
+<body>
+用户名:<input type="text" id="i1">
+<span id="s1">6-10位数字字母下划线组成</span><br>
+密码:<input type="password" id="i2">
+<span id="s2">6-10位数字字母下划线组成</span><br>
+<input type="button" value="校验" onclick="myfn()">
+
+</body>
+</html>

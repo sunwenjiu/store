@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.ok {
+	visibility: hidden;
+}
+
+.err {
+	color: red;
+	visibility: visible;
+}
+</style>
+<script type="text/javascript">
+	function checkUsername() {
+		var reg = /^\w{6,10}$/;
+		s1.className = reg.test(i1.value) ? "ok" : "err";
+		return reg.test(i1.value)?true:false;
+	}
+	function checkPasswprd() {
+		var reg = /^\w{6,10}$/;
+		s2.className = reg.test(i2.value) ? "ok" : "err";
+		return reg.test(i2.value)?true:false;
+
+	}
+</script>
+</head>
+<body>
+<!-- <a href="http://www.baidu.com" onclick="return confirm('确定离开吗')">离开</a> -->
+	<form action="http://www.tmooc.cn" onsubmit="return checkUsername()+checkPasswprd()==2">
+		用户名:<input type="text" id="i1" onblur="checkUsername()"> 
+		<span	id="s1" class="ok">格式错误</span><br> 
+		密码:<input type="password"	id="i2" onblur="checkPasswprd()">
+		 <span id="s2" class="ok">格式错误</span><br>
+		<input type="submit" value="注册">
+	</form>
+</body>
+</html>

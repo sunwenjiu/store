@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.mapper.UserMapper">
+	<resultMap type="User" id="userRM" autoMapping="true">
+		<id column="user_id" property="userId" />
+		<id column="username" property="username" />
+		<id column="password" property="password" />
+		<association property="userInfo" javaType="UserInfo">
+			<id column="user_id" property="userInfoId" />
+			<result column="age" property="age" />
+			<result column="address" property="address" />
+			<result column="sex" property="sex" />
+		</association>
+		<association property="dept" javaType="Dept">
+			<id column="dept_id" property="deptId" />
+			<result column="dept_name" property="deptName" />
+			<association property="parentDept" javaType="Dept">
+			<result column="pname" property="deptName" />
+			</association>
+		</association>
+	</resultMap>
+	<sql id="selectUser">
+		select uall.user_id,uall.username,uall.password,uall.age,
+		uall.address,uall.sex,dall.dept_id,dall.pname,dall.dept_name from
+		(select u.user_id,u.username,u.password,u.dept_id,
+		uif.age,uif.address,uif.sex
+		from user u join user_info uif
+		on u.user_id=uif.uesr_info_id) uall
+		join
+		(select d1.dept_id,d1.dept_name ,d2.dept_name pname from dept d1 left join
+		dept d2
+		on d1.parent_id=d2.dept_id) dall
+		on uall.dept_id=dall.dept_id
+	</sql>
+
+	<select id="findAll" resultMap="userRM">
+	<include refid="selectUser"/>
+	</select>
+	<select id="findUserById" resultMap="userRM">
+	<include refid="selectUser"/> where user_id=#{id}
+	</select>
+</mapper>

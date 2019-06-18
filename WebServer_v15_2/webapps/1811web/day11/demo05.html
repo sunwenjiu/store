@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div{
+width: 100px;
+height: 100px;
+background-color: red;
+
+}
+
+</style>
+<script type="text/javascript">
+
+function downfn(){
+	
+	console.log("鼠标按下:"+event.clientX+" "+event.clientY)
+}
+function upfn(){
+	console.log("鼠标按出")
+}
+function movefn(){
+	console.log("鼠标移动")
+}
+function keydownfn(){
+	console.log("键盘按下:"+event.keyCode)
+	if(event.keyCode==13){
+		alert(" hn")
+	}
+}
+function keyupfn(){
+	//console.log("键盘抬起:"+String.fromCharCode(event.keyCode);
+	if(event.keyCode==13){
+		alert(" hn")
+	}
+
+}
+onload=function(){
+	btn1.onclick=function(){
+		alert("a")
+		
+	}
+	
+}
+</script>
+</head>
+<body>
+<input id="btn1" type="button" value="按钮">
+<div onmousedown="downfn()" onmouseup="upfn()" onmousemove="movefn()">
+
+</div>
+<input type="text" onkeydown="keydownfn()" onkeyup="keyupfn()" >
+
+</body>
+</html>

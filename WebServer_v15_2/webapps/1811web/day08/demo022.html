@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.d2{
+width: 20px;
+height: 20px;
+border: 1px solid red;
+margin:5px;
+ display: inline-block; 
+
+}
+</style>
+<script type="text/javascript">
+function addfn(){
+	var i1=document.getElementById("i1");
+	var i2=document.getElementById("i2");
+	var d1=document.getElementById("d1");
+
+
+	for(var i=1;i<=10;i++){
+		
+		for(var j=0;j<i;j++){
+			d1.innerHTML+="<div class='d2'></div>";
+			
+		}
+		d1.innerHTML+="<br>";
+	}
+
+	
+}
+
+</script>
+</head>
+<body>
+<input type="text" id="i1" placeholder="请输入行数">
+<input type="text" id="i2" placeholder="请输入列数">
+<input type="button" value="添加" onclick="addfn()">
+<div id="d1"></div>
+</body>
+</html>

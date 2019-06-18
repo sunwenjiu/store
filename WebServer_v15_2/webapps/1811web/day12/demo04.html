@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+
+$("#btn1").click(function(){
+	var h1=$("<h1>"+ $("#i1").val() +"</h1>")
+	$("#d2").before(h1)
+})
+$("#btn2").click(function(){
+	var h1=$("<h1></h1>")
+	h1.text($("#i1").val())
+	$("#d2").after(h1)
+})
+})
+setTimeout(function(){
+	$("#d2").remove();
+},3000)
+</script>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="button" value="加到元素前面"  id="btn1">
+<input type="button" value="加到元素后面" id="btn2">
+
+<div id="d1">
+<div>aaa</div>
+<div id="d2">bbb</div>
+<div>ccc</div>
+</div>
+</body>
+</html>

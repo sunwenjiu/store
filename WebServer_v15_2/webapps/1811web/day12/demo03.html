@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+
+$("#btn1").click(function(){
+	var h1=$("<h1>"+ $("#i1").val() +"</h1>")
+	$("#d1").prepend(h1)
+})
+$("#btn2").click(function(){
+	var h1=$("<h1>"+ $("#i1").val() +"</h1>")
+	$("#d1").append(h1)
+})
+})
+</script>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="button" value="加到最前面"  id="btn1">
+<input type="button" value="加到最后面" id="btn2">
+
+<div id="d1">
+<div>aaa</div>
+<div id="d2">bbb</div>
+<div>ccc</div>
+</div>
+</body>
+</html>

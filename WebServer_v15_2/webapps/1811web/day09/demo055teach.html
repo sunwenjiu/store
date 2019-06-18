@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#big_div{
+width: 200px;
+margin: 0 auto;
+border: 4px solid pink;
+border-radius: 4px;
+
+padding: 0;
+overflow: hidden;
+}
+#sm_div{
+height: 37px;
+width: 135px;
+border: 4px solid pink;
+border-radius: 4px;
+display: inline-block;
+margin: 4px 0 0 4px;
+padding: 0;
+line-height: 37px;
+float: left;
+overflow: hidden;
+
+
+}
+input{
+width: 45px;
+height: 45px;
+margin: 4px 0 6px 4px;
+border-radius: 4px;
+border: 4px solid #ccc;
+float: left;
+background-color: pink;
+}
+
+</style>
+
+<script type="text/javascript">
+function myfn(str){
+	
+	if(str=="c"){
+		
+		sm_div.innerText="";
+		
+	}else if(str=="="){
+		sm_div.innerText=eval(sm_div.innerText)
+	}else{
+		sm_div.innerText+=str;
+	}
+	
+	
+}
+
+
+
+</script>
+</head>
+<body>
+<div id="big_div">
+<div id="sm_div"></div>
+<input type="button" class="in" id="ic" value="c" onclick="myfn('c')">
+
+<input type="button" class="in" id="i7" value="7" onclick="myfn(7)">
+<input type="button" class="in" id="i8" value="8" onclick="myfn(8)">
+<input type="button" class="in" id="i9" value="9" onclick="myfn(9)">
+<input type="button" class="in" id="ichu" value="/" onclick="myfn('/')">
+
+<input type="button" class="in" id="i4" value="4" onclick="myfn(4)">
+<input type="button" class="in" id="i5" value="5" onclick="myfn(5)">
+<input type="button" class="in" id="i6" value="6" onclick="myfn(6)">
+<input type="button" class="in" id="ichen" value="*" onclick="myfn('*')">
+
+<input type="button" class="in" id="i1" value="1" onclick="myfn(1)">
+<input type="button" class="in" id="i2" value="2" onclick="myfn(2)">
+<input type="button" class="in" id="i3" value="3" onclick="myfn(3)">
+<input type="button" class="in" id="ijian" value="-" onclick="myfn('-')">
+
+<input type="button" class="in" id="i0" value="0" onclick="myfn(0)">
+<input type="button" class="in" id="idia" value="." onclick="myfn('.')">
+<input type="button" class="in" id="iden" value="=" onclick="myfn('=')">
+<input type="button" class="in" id="ijia" value="+" onclick="myfn('+')">
+
+</div>
+
+</body>
+</html>

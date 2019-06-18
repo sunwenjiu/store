@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function myfn(){
+	//得到文本输入框和div
+	var i = document.getElementById("i1");
+	var d = document.getElementById("d1");
+	if(isNaN(i.value)){
+		d.innerText="输入错误";
+	}else{
+		d.innerText=i.value*i.value;
+	}
+	
+}
+</script>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="button" value="平方" onclick="myfn()">
+<div id="d1"></div>
+
+</body>
+</html>

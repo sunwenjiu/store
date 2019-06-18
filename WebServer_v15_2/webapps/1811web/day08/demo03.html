@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function addfn(){
+	var i1 =document.getElementById("i1");
+	var myul =document.getElementById("myul");
+	var str ="<li>[c]</li>"
+	str=str.replace("[c]",i1.value);
+	
+	myul.innerHTML+=str;
+	
+}
+</script>
+</head>
+<body>
+<input type="text" id="i1" placeholder="请写东西">
+<input type="button" value="提交"  onclick="addfn()">
+<ul id="myul">
+
+</ul>
+</body>
+</html>

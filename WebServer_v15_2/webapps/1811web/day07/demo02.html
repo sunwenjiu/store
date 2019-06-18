@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function fn1(){
+	alert("fn1执行了");
+	
+}
+//fn1();
+function fn2(){
+	return "abc";
+	
+}
+/* var s = fn2();
+alert(s); */
+
+function fn3(name,age){
+	alert("name:"+name+",age"+age)
+	
+}
+/* fn3("张三",18) */
+function fn4(n1,n2){
+	return n1*n2;
+	
+}
+/* var result = fn4(3,8);
+alert(result); */
+
+var fn5= function(){
+	alert("第二种写法调用成功");
+}
+//fn5();
+var fn6 = new Function("name","age","alert('name:'+name+',age:'+age);");
+
+//fn6("张三",18);
+
+</script>
+</head>
+<body>
+<input type="button" value="按钮" onclick="fn6('礼拜',20)">
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* setTimeout(function(){
+	 alert("ss");
+	
+	 },2000); */
+	onload = function() {
+		var s = new Date();
+
+		myh1.innerText = s.toLocaleTimeString();
+
+	}
+
+	setInterval(function() {
+
+		var s = new Date();
+
+		myh1.innerText = s.toLocaleTimeString();
+
+	}, 1000);
+	function myfn() {
+		var s = new Date();
+		var h = i1.value * 3600;
+		var m = i2.value * 60;
+		var ss = parseInt(i3.value);
+		s = h + ss + m;
+		alert(s);
+		setInterval(function() {
+			s--;
+			var hour = parseInt(s/3600);
+
+			var minute = parseInt(s%3600/60);
+
+			var seconds = s%60;
+			//alert(seconds);
+			myh2.innerText= hour + ":" + minute + ":" + seconds;
+
+		}, 1000);
+
+	}
+</script>
+</head>
+<body>
+	<h1 id="myh1"></h1>
+	<input type="text" id="i1" placeholder="小时">
+	<input type="text" id="i2" placeholder="分钟">
+	<input type="text" id="i3" placeholder="秒">
+	<input type="button" value="开始" onclick="myfn()">
+	<h2 id="myh2"></h2>
+
+
+</body>
+</html>

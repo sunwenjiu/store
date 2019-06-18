@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div,img{
+width: 200px;
+height: 150px;
+
+}
+div{
+
+overflow: hidden;
+}
+
+</style>
+
+<script type="text/javascript">
+onload=function(){
+	chengImg();
+}
+//开启定时器
+var x=0;
+setInterval(function(){
+//	console.log(x++);
+chengImg();
+},1000)
+
+function chengImg(){
+	
+	var visibleIndex= x++%4;
+	var arr=document.getElementsByTagName("img");
+	for(var i=0;i<arr.length;i++){
+		arr[i].style.display=i==visibleIndex?"block":"none";
+	}
+}
+</script>
+</head>
+<body>
+<div>
+<img alt="" src="../imgs/a.jpg">
+<img alt="" src="../imgs/1.jpg">
+<img alt="" src="../imgs/b.jpg">
+<img alt="" src="../imgs/k.jpg">
+</div>
+
+</body>
+</html>

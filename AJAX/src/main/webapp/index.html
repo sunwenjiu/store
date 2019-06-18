@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+
+		$("#btn_login").click(function() {
+			var u=$("#username").val();
+			var p=$("#password").val();
+			
+			$("#username-hint").html("");
+			$("#password-hint").html("");
+			
+			$.ajax({
+					"url":"user/login.do",
+					"data":"username="+u+"&password="+p,
+					"type":"post",
+					"dataType":"json",
+					"success":function(json){
+							if(json.state==1){
+								//登录成功
+								alert(json.message);
+							}else if (json.state==2) {
+								//用户名错
+								//alert(json.message);
+								$("#username-hint").html(json.message);
+							}else {
+								//密码错
+								//alert(json.message);
+								$("#password-hint").html(json.message);
+							}
+					}
+			});
+		});
+	});
+</script>
+
+</head>
+<body>
+<form action="handle_login.do" method="post">
+用户名:<input id="username" type="text" name="username">
+<span id="username-hint"></span>
+<br><br>
+密码:<input id="password" type="password" name="password">
+<span id="password-hint"></span>
+<br><br>
+
+<input id="btn_login" type="button" value="登录">
+</form>
+
+
+</body>
+</html>

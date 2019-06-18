@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	background-image: url("../zombimgs/bg1.jpg");
+	
+overflow: hidden;
+	
+}
+#success_h1{
+float: left;
+color: red;
+background-color: green;
+}
+#fail_h1{
+float: right;
+color: red;
+background-color: green;
+}
+</style>
+<script type="text/javascript">
+var seccessCount =0;
+var failCount=0;
+
+
+	onload = function() {
+		changeBg();
+	//	addh1();
+	}
+	onresize = function() {
+		//alert("sb")
+		changeBg();
+	}
+	function changeBg() {
+		var w = document.body.parentElement.clientWidth
+		var h = document.body.parentElement.clientHeight
+
+		document.body.style.backgroundSize =	""+w+"px "+h+"px";
+			
+	}
+	setInterval(function() {
+		var img = document.createElement("img");
+		var type=parseInt(seccessCount/30);
+		type=type>3?3:type;
+		
+		
+		img.src = "../zombimgs/zomb"+type+".png";
+		img.style.position="absolute";
+		img.style.width="80px";
+			img.style.height="80px";
+		var w = document.body.parentElement.clientWidth;
+		var h = document.body.parentElement.clientHeight
+		img.style.left=w+"px";
+		img.style.top=parseInt(Math.random()*(h-80))+"px";
+		document.body.appendChild(img);
+		
+		//添加动态事件
+		img.onmouseover=function(){
+			document.body.removeChild(this);
+			seccessCount++;
+			success_h1.innerText="成功次数:"+seccessCount;
+			
+		}
+
+	}, 100)
+	setInterval(function(){
+		var imgs=document.getElementsByTagName("img");
+		for(var i=0;i<imgs.length;i++){
+			var oldLeft=parseInt(imgs[i].style.left);
+			oldLeft-=2;
+			imgs[i].style.left=oldLeft+"px";
+			if(oldLeft<=0){
+				document.body.removeChild(imgs[i]);
+				failCount++;
+				fail_h1.innerText="失败次数:"+failCount;
+			}
+			
+		}
+		
+		
+	},10)
+	/* function addh1(){
+		var h1=document.createElement("h1");
+		var h2=document.createElement("h1");
+	h1.innerText="失败:";
+	h2.innerText="成功:";
+	h1.style.float="left" ;
+	h2.style.float="right" ;
+	document.body.appendChild(h1);
+	document.body.appendChild(h2);
+		
+	} */
+	
+	
+</script>
+</head>
+<body>
+<h1 id="success_h1">成功次数:0</h1>
+<h1 id="fail_h1">失败次数:0</h1>
+
+
+</body>
+</html>

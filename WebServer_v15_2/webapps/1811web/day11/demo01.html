@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var arr =[["秦皇岛","唐山","石家庄"],["沈阳","大连","单通"],["大同","太原","临汾"]];
+function myfn(){
+	s2.innerHTML="<option>请选择</option>";
+	var arr2=arr[s1.value];
+	//alert(arr2)
+	
+	for(var i=0;i<arr2.length;i++){
+	var op =document.createElement("option");
+		op.innerText=arr2[i];
+	
+		
+	s2.appendChild(op);
+		
+	}
+	
+	
+}
+
+</script>
+</head>
+<body>
+<select id="s1" onchange="myfn()">
+	<option>请选择</option>
+	<option value="0">河北省</option>
+	<option value="1">辽宁省</option>
+	<option value="2">山西省</option>
+
+</select>
+<select id="s2">
+	<option>请选择</option>
+	
+</select>
+
+
+</body>
+</html>

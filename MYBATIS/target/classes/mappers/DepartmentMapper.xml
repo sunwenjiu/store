@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.mybatis.DepartmentMapper">
+
+	<!-- resultMap：用于指导MyBatis如何将查询结果封装到对象中 -->
+	<!-- id：自定义的唯一值 -->
+	<!-- type：将查询结果封装到哪种类型的对象中 -->
+	<resultMap id="DepartmentVO_Map" 
+		type="cn.tedu.mybatis.DepartmentVO">
+		<!-- id节点：用于配置主键字段的值的封装 -->
+		<!-- column：查询结果中的列名 -->
+		<!-- property：要封装到的属性名 -->
+		<id column="did" property="id" />
+		<!-- result节点：用于配置非主键字段的值的封装 -->
+		<result column="name" property="name" />
+		<!-- collection：用于配置1:N关系的数据 -->
+		<!-- property：同上 -->
+		<!-- ofType：集合中的元素的类型 -->
+		<collection property="users"
+			ofType="cn.tedu.mybatis.User">
+			<id column="uid" property="id" />
+			<result column="username" property="username" />
+			<result column="password" property="password" />
+			<result column="age" property="age" />
+			<result column="phone" property="phone" />
+			<result column="email" property="email" />
+			<result column="is_delete" property="isDelete" />
+			<result column="department_id" property="departmentId" />
+		</collection>
+	</resultMap>
+
+	<!-- List<DepartmentVO> findAll() -->
+	<select id="findAll"
+		resultMap="DepartmentVO_Map">
+		SELECT 
+			t_department.id AS did,
+			t_department.name,
+			t_user.id AS uid,
+			username, password,
+			age, phone,
+			email, is_delete,
+			department_id
+		FROM 
+			t_department
+		LEFT JOIN
+			t_user
+		ON
+			t_department.id=t_user.department_id
+	</select>
+	
+	<!-- DepartmentVO findById(Integer id) -->
+	<select id="findById"
+		resultMap="DepartmentVO_Map">
+		SELECT 
+			t_department.id AS did,
+			t_department.name,
+			t_user.id AS uid,
+			username, password,
+			age, phone,
+			email, is_delete,
+			department_id
+		FROM 
+			t_department
+		LEFT JOIN
+			t_user
+		ON
+			t_department.id=t_user.department_id
+		WHERE 
+			t_department.id=#{id}
+	</select>
+
+</mapper>
+
+
+
+
+
+
+

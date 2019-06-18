@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- alt:当图片不能显示时显示的文本
+		src:路径
+		相对路径:
+				1:和页面在同一个目录:直接写图片名字
+				2:在页面的上一个目录:  ../往上一层
+														../../往上两层 最后图片名字
+				3:在页面的下一个目录: 文件夹名/图片名
+		绝对路径:可以访问站内也可以范围站外
+					以Http开头的
+					访问站外的资源称为盗链,节省自己网站资源和流量,但是有图片不能正常显示的风险
+					
+			title :鼠标悬停时显示的文本
+			width:宽度  两种赋值方式1像素 2百分比(上级元素百分比)
+			height:高度
+			支持的图片格式:jpg/jpeg   png ,gif
+  -->
+<a herf="http://www.baidu.com"><img alt="这是英雄图片" width="50%"  src="../imgs/1.jpg" title="title鼠标悬停时显示的文本"  onclick="alert('SWJ')"></a>
+<img alt="美女" width="200px" src="http://cdn.tmooc.cn/bsfile//courseImg///E193CCAC163B4B8DB7B3969CD8F7BFB2.jpg">
+<a herf="" ><img 	 src="../imgs/2.gif"></a>
+</body>
+</html>

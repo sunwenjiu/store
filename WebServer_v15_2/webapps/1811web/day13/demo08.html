@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body{
+background-color: black;
+margin: 0;
+}
+img{
+position: absolute;
+
+}
+
+</style>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+setInterval(function(){
+	var img= $("<img src='snow.png'>")
+var size=	parseInt(Math.random()*20)+20;
+	var w = document.body.clientWidth;
+var x= 	parseInt(Math.random()*(w-size))
+	
+	
+	$(document.body).append(img)
+	img.css({"width":size+"px","left":x+"px","top":"-40px"})
+	var h =document.body.parentElement.clientHeight
+	var top=h-size;
+	
+	img.animate({"top":top+"px"},size*200)
+	.fadeOut(1000,function(){
+		$(this).remove();
+	})
+	
+	
+	
+},100)
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function myfn(){
+	myimg.style.width=i1.value+"px";
+	myimg.style.height=i2.value+"px";
+	myimg.style.marginLeft=i3.value+"px";
+	myimg.style.marginTop=i4.value+"px";
+}
+/* var x =0;
+
+	onclick=function(){
+		x+=10;
+		myimg.style.marginLeft =x+"px";
+	}
+	
+; */
+
+onclick=function(){
+var oldx=	myimg.style.marginLeft;
+oldx=parseInt(oldx);
+if(isNaN(oldx)){
+	oldx=0;
+}
+oldx+=10;
+	myimg.style.marginLeft =oldx+"px";
+}
+
+setInterval(function(){
+	var oldx=	myimg.style.marginLeft;
+	oldx=parseInt(oldx);
+	if(isNaN(oldx)){
+		oldx=0;
+	}
+	oldx+=10;
+		myimg.style.marginLeft =oldx+"px";
+	
+},100);
+</script>
+</head>
+<body>
+<div id="d1">今天星期四</div>
+<input type="text" id="i1" placeholder="宽度">
+<hr>
+<input type="text" id="i2" placeholder="高度">
+<hr>
+<input type="text" id="i3" placeholder="左">
+<hr>
+<input type="text" id="i4" placeholder="上">
+<input type="button" value="确定" onclick="myfn()">
+<hr>
+<img alt="" src="../imgs/2.gif" id="myimg">
+
+</body>
+</html>
